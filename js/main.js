@@ -1,13 +1,14 @@
 jQuery(document).ready(function($){
 	var cartWrapper = $('.cd-cart-container');
 	//product id - you don't need a counter in your real project but you can use your real product id
-	var productId = 0;
+	var productId = $('.prod-id');
 
 	if( cartWrapper.length > 0 ) {
 		//store jQuery objects
 		var cartBody = cartWrapper.find('.body')
 		var cartList = cartBody.find('ul').eq(0);
 		var cartTotal = cartWrapper.find('.checkout').find('span');
+		var aCheckoutBtn = cartWrapper.find('a.checkout.btn');
 		var cartTrigger = cartWrapper.children('.cd-cart-trigger');
 		var cartCount = cartTrigger.children('.count')
 		var addToCartBtn = $('.cd-add-to-cart');
@@ -24,6 +25,12 @@ jQuery(document).ready(function($){
 		cartTrigger.on('click', function(event){
 			event.preventDefault();
 			toggleCart();
+		});
+
+		//type phone name and number
+		aCheckoutBtn.on('click', function(event){
+			event.preventDefault();
+			toggleInput();
 		});
 
 		//close cart when clicking on the .cd-cart-container::before (bg layer)
@@ -77,7 +84,7 @@ jQuery(document).ready(function($){
 	function addToCart(trigger) {
 		var cartIsEmpty = cartWrapper.hasClass('empty');
 		//update cart product list
-		addProduct();
+		addProduct(trigger);
 		//update number of items 
 		updateCartCount(cartIsEmpty);
 		//update total price
@@ -86,12 +93,8 @@ jQuery(document).ready(function($){
 		cartWrapper.removeClass('empty');
 	}
 
-	function addProduct() {
-		//this is just a product placeholder
-		//you should insert an item with the selected product info
-		//replace productId, productName, price and url with your real product info
-		productId = productId + 1;
-		var productAdded = $('<li class="product"><div class="product-image"><a href="#0"><img src="img/product-preview.png" alt="placeholder"></a></div><div class="product-details"><h3><a href="#0">Product Name</a></h3><span class="price">25.99 грн.</span><div class="actions"><a href="#0" class="delete-item">Удалить</a><div class="quantity"><label for="cd-product-'+ productId +'">Qty</label><span class="select"><select id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>');
+	function addProduct(trigger) {
+		var productAdded = $('<li class="product"><div class="product-image"><a href="#0"><img src="' + trigger.data('icon') + '" alt="placeholder"></a></div><div class="product-details"><h3><a href="#0">' + trigger.data('name') + '</a></h3><span class="price">' + trigger.data('price') + '</span><div class="actions"><a href="#0" class="delete-item">Удалить</a><div class="quantity"><label for="cd-product-'+ productId +'">К-во:</label><span class="select"><select id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>');
 		cartList.prepend(productAdded);
 	}
 
@@ -100,8 +103,8 @@ jQuery(document).ready(function($){
 		cartList.find('.deleted').remove();
 		
 		var topPosition = product.offset().top - cartBody.children('ul').offset().top ,
-			productQuantity = Number(product.find('.quantity').find('select').val()),
-			productTotPrice = Number(product.find('.price').text().replace('$', '')) * productQuantity;
+		productQuantity = Number(product.find('.quantity').find('select').val()),
+		productTotPrice = Number(product.find('.price').text().replace('$', '')) * productQuantity;
 		
 		product.css('top', topPosition+'px').addClass('deleted');
 
@@ -167,4 +170,9 @@ jQuery(document).ready(function($){
 	function updateCartTotal(price, bool) {
 		bool ? cartTotal.text( (Number(cartTotal.text()) + Number(price)).toFixed(2) )  : cartTotal.text( (Number(cartTotal.text()) - Number(price)).toFixed(2) );
 	}
+
+	function toggleInput() {
+		aCheckoutBtn.find('em').replaceWith('<input name="phone" type="tel" placeholder="(095)5465757" required><input type="submit" value="Заказать">');
+	}
+	// payCart($(this));
 });
