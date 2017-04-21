@@ -66,6 +66,8 @@ jQuery(document).ready(function($){
 		
 		if( cartIsOpen ) {
 			cartWrapper.removeClass('cart-open');
+			aCheckoutBtn.find('form').replaceWith('<em>К оплате - <span>0</span> грн.</em>');
+			quickUpdateCart();
 			//reset undo
 			clearInterval(undoTimeoutId);
 			undo.removeClass('visible');
@@ -172,7 +174,11 @@ jQuery(document).ready(function($){
 	}
 
 	function toggleInput() {
-		aCheckoutBtn.find('em').replaceWith('<input name="phone" type="tel" placeholder="(095)5465757" required><input type="submit" value="Заказать">');
+		if (aCheckoutBtn.find('em')) {
+			aCheckoutBtn.find('em').replaceWith('<form class="animated fadeInDown"><input name="phone" type="tel" placeholder="(095)5465757" required><input type="submit" value="Заказать"></form>');
+		} else {
+			aCheckoutBtn.find('form').replaceWith('<em></em>');
+		}
 	}
 	// payCart($(this));
 });
