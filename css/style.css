@@ -62,8 +62,8 @@ h1 {
 }
 .cd-add-to-cart:active {
   -webkit-transform: scale(0.9);
-      -ms-transform: scale(0.9);
-          transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 /* -------------------------------- 
@@ -103,7 +103,7 @@ Main Components
   transition: transform .2s, -webkit-transform .2s;
   /* Force Hardware Acceleration in WebKit */
   -webkit-transform: translateZ(0);
-          transform: translateZ(0);
+  transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   will-change: transform;
   backface-visibility: hidden;
@@ -112,8 +112,8 @@ Main Components
 .cd-cart {
   /* hide cart */
   -webkit-transform: translateY(150px);
-      -ms-transform: translateY(150px);
-          transform: translateY(150px);
+  -ms-transform: translateY(150px);
+  transform: translateY(150px);
 }
 @media only screen and (min-width: 1170px) {
   .cd-cart-trigger,
@@ -141,8 +141,8 @@ Main Components
   bottom: auto;
   right: auto;
   -webkit-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
   height: 100%;
   width: 100%;
   background: url(../img/cd-icons-cart-close.svg) no-repeat 0 0;
@@ -156,8 +156,8 @@ Main Components
   background-position: -72px 0;
   opacity: 0;
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(90deg);
-      -ms-transform: translateX(-50%) translateY(-50%) rotate(90deg);
-          transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(90deg);
+  transform: translateX(-50%) translateY(-50%) rotate(90deg);
 }
 .cart-open .cd-cart-trigger::before {
   opacity: 0;
@@ -165,8 +165,8 @@ Main Components
 .cart-open .cd-cart-trigger::after {
   opacity: 1;
   -webkit-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
 .cd-cart-trigger .count {
   /* number of items indicator */
@@ -190,29 +190,29 @@ Main Components
   /* this is the number of items in the cart */
   position: absolute;
   -webkit-transform: translateZ(0);
-          transform: translateZ(0);
+  transform: translateZ(0);
   left: 50%;
   top: 50%;
   bottom: auto;
   right: auto;
   -webkit-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
 .cd-cart-trigger .count li:last-of-type {
   visibility: hidden;
 }
 .cd-cart-trigger .count.update-count li:last-of-type {
   -webkit-animation: cd-qty-enter .15s;
-          animation: cd-qty-enter .15s;
+  animation: cd-qty-enter .15s;
   -webkit-animation-direction: forwards;
-          animation-direction: forwards;
+  animation-direction: forwards;
 }
 .cd-cart-trigger .count.update-count li:first-of-type {
   -webkit-animation: cd-qty-leave .15s;
-          animation: cd-qty-leave .15s;
+  animation: cd-qty-leave .15s;
   -webkit-animation-direction: forwards;
-          animation-direction: forwards;
+  animation-direction: forwards;
 }
 .cart-open .cd-cart-trigger .count {
   -webkit-transition: -webkit-transform .2s 0s;
@@ -220,14 +220,14 @@ Main Components
   transition: transform .2s 0s;
   transition: transform .2s 0s, -webkit-transform .2s 0s;
   -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
 }
 .empty .cd-cart-trigger .count {
   /* fix bug - when cart is empty, do not animate count */
   -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
 }
 .cd-cart-trigger:hover + div .wrapper {
   box-shadow: 0 6px 40px rgba(0, 0, 0, 0.3);
@@ -257,7 +257,7 @@ Main Components
   -webkit-transition: height .4s .1s, width  .4s .1s, box-shadow .3s;
   transition: height .4s .1s, width  .4s .1s, box-shadow .3s;
   -webkit-transition-timing-function: cubic-bezier(0.67, 0.17, 0.32, 0.95);
-          transition-timing-function: cubic-bezier(0.67, 0.17, 0.32, 0.95);
+  transition-timing-function: cubic-bezier(0.67, 0.17, 0.32, 0.95);
   background: #ffffff;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.17);
   pointer-events: auto;
@@ -340,8 +340,8 @@ Main Components
   position: relative;
   display: inline-block;
   -webkit-transform: translateX(40px);
-      -ms-transform: translateX(40px);
-          transform: translateX(40px);
+  -ms-transform: translateX(40px);
+  transform: translateX(40px);
   -webkit-transition: -webkit-transform 0s .2s;
   transition: -webkit-transform 0s .2s;
   transition: transform 0s .2s;
@@ -352,8 +352,8 @@ Main Components
   top: 50%;
   bottom: auto;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
   right: 0;
   content: '';
   height: 24px;
@@ -384,8 +384,8 @@ Main Components
   position: relative;
   opacity: 0;
   -webkit-transform: translateX(80px);
-      -ms-transform: translateX(80px);
-          transform: translateX(80px);
+  -ms-transform: translateX(80px);
+  transform: translateX(80px);
   -webkit-transition: opacity 0s .2s, -webkit-transform 0s .2s;
   transition: opacity 0s .2s, -webkit-transform 0s .2s;
   transition: opacity 0s .2s, transform 0s .2s;
@@ -406,24 +406,24 @@ Main Components
   width: calc(100% - 2.8em);
   opacity: 0;
   -webkit-animation: cd-item-slide-out .3s forwards;
-          animation: cd-item-slide-out .3s forwards;
+  animation: cd-item-slide-out .3s forwards;
 }
 .cd-cart .body li.deleted.undo-deleted {
   /* used to reinsert an item deleted from the cart when user clicks 'Undo' */
   -webkit-animation: cd-item-slide-in .3s forwards;
-          animation: cd-item-slide-in .3s forwards;
+  animation: cd-item-slide-in .3s forwards;
 }
 .cd-cart .body li.deleted + li {
   -webkit-animation: cd-item-move-up-mobile .3s;
-          animation: cd-item-move-up-mobile .3s;
+  animation: cd-item-move-up-mobile .3s;
   -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
 .cd-cart .body li.undo-deleted + li {
   -webkit-animation: cd-item-move-down-mobile .3s;
-          animation: cd-item-move-down-mobile .3s;
+  animation: cd-item-move-down-mobile .3s;
   -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
 .cd-cart .product-image {
   display: inline-block;
@@ -468,6 +468,11 @@ Main Components
   width: 30%;
   text-align: right;
 }
+.cd-cart .currency {
+  float: right;
+  width: 30%;
+  text-align: right;
+}
 .cd-cart .actions {
   font-size: 1.4rem;
   height: 1.6em;
@@ -505,8 +510,8 @@ Main Components
   right: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
   display: block;
   width: 12px;
   height: 12px;
@@ -518,8 +523,8 @@ Main Components
   padding: 0 1em 0 0;
   cursor: pointer;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background: transparent;
   border: none;
   border-radius: 0;
@@ -540,7 +545,7 @@ Main Components
   height: 100%;
   width: 100%;
   -webkit-transition-delay: 0s;
-          transition-delay: 0s;
+  transition-delay: 0s;
 }
 .cart-open .cd-cart header, .cart-open .cd-cart .body {
   opacity: 1;
@@ -560,30 +565,68 @@ Main Components
   transition: transform .3s .2s, opacity .3s .2s, -webkit-transform .3s .2s;
   opacity: 1;
   -webkit-transform: translateX(0);
-      -ms-transform: translateX(0);
-          transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
 }
 .cart-open .cd-cart .body li:nth-of-type(2) {
   -webkit-transition-duration: .4s;
-          transition-duration: .4s;
+  transition-duration: .4s;
 }
 .cart-open .cd-cart .body li:nth-of-type(3) {
   -webkit-transition-duration: .5s;
-          transition-duration: .5s;
+  transition-duration: .5s;
 }
 .cart-open .cd-cart .body li:nth-of-type(4), .cart-open .cd-cart .body li:nth-of-type(5) {
   -webkit-transition-duration: .55s;
-          transition-duration: .55s;
+  transition-duration: .55s;
 }
 .cart-open .cd-cart .checkout {
   color: #ffffff;
   -webkit-transition: color .2s .3s;
   transition: color .2s .3s;
 }
+.cart-phone-form {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.cart-phone-form input[type="tel"] {
+  width: 55%;
+  padding: 0.5em 0.5em 0.5em 1em;
+  border-radius: 1em;
+  text-transform: uppercase;
+  color: #2b3e51;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  margin-left: 4rem;
+}
+.cart-phone-form input[type="submit"] {
+  position: absolute;
+  width: 35%;
+  padding: .5em .5em;
+  border-radius: 1em;
+  text-transform: uppercase;
+  color: #2b3e51;
+  font-size: 2rem;
+  right: 4rem;
+  border: none;
+  outline: none;
+}
+.cart-phone-form input[type="submit"]:hover {
+  background-color: #2baa67;
+}
+.cart-phone-form input[type="submit"]:active {
+  background-color: #248c55;
+}
 .cart-open .cd-cart .checkout em {
   -webkit-transform: translateX(0);
-      -ms-transform: translateX(0);
-          transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
   -webkit-transition: padding .2s 0s, -webkit-transform .2s .3s;
   transition: padding .2s 0s, -webkit-transform .2s .3s;
   transition: transform .2s .3s, padding .2s 0s;
@@ -601,11 +644,11 @@ Main Components
   }
   .cd-cart .body li.deleted + li {
     -webkit-animation: cd-item-move-up .3s;
-            animation: cd-item-move-up .3s;
+    animation: cd-item-move-up .3s;
   }
   .cd-cart .body li.undo-deleted + li {
     -webkit-animation: cd-item-move-down .3s;
-            animation: cd-item-move-down .3s;
+    animation: cd-item-move-down .3s;
   }
   .cd-cart .checkout {
     font-size: 2.4rem;
@@ -627,13 +670,13 @@ Main Components
     opacity: 0;
     visibility: hidden;
     -webkit-transform: translateX(-50%) translateY(0);
-            transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
   100% {
     opacity: 1;
     visibility: visible;
     -webkit-transform: translateX(-50%) translateY(-50%);
-            transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
   }
 }
 
@@ -642,13 +685,13 @@ Main Components
     opacity: 0;
     visibility: hidden;
     -webkit-transform: translateX(-50%) translateY(0);
-            transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
   100% {
     opacity: 1;
     visibility: visible;
     -webkit-transform: translateX(-50%) translateY(-50%);
-            transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
   }
 }
 @-webkit-keyframes cd-qty-leave {
@@ -656,13 +699,13 @@ Main Components
     opacity: 1;
     visibility: visible;
     -webkit-transform: translateX(-50%) translateY(-50%);
-            transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
   }
   100% {
     opacity: 0;
     visibility: hidden;
     -webkit-transform: translateX(-50%) translateY(-100%);
-            transform: translateX(-50%) translateY(-100%);
+    transform: translateX(-50%) translateY(-100%);
   }
 }
 @keyframes cd-qty-leave {
@@ -670,13 +713,13 @@ Main Components
     opacity: 1;
     visibility: visible;
     -webkit-transform: translateX(-50%) translateY(-50%);
-            transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
   }
   100% {
     opacity: 0;
     visibility: hidden;
     -webkit-transform: translateX(-50%) translateY(-100%);
-            transform: translateX(-50%) translateY(-100%);
+    transform: translateX(-50%) translateY(-100%);
   }
 }
 @-webkit-keyframes cd-item-move-up-mobile {
@@ -746,48 +789,48 @@ Main Components
 @-webkit-keyframes cd-item-slide-out {
   0% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     opacity: 1;
   }
   100% {
     -webkit-transform: translateX(80px);
-            transform: translateX(80px);
+    transform: translateX(80px);
     opacity: 0;
   }
 }
 @keyframes cd-item-slide-out {
   0% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     opacity: 1;
   }
   100% {
     -webkit-transform: translateX(80px);
-            transform: translateX(80px);
+    transform: translateX(80px);
     opacity: 0;
   }
 }
 @-webkit-keyframes cd-item-slide-in {
   100% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     opacity: 1;
   }
   0% {
     -webkit-transform: translateX(80px);
-            transform: translateX(80px);
+    transform: translateX(80px);
     opacity: 0;
   }
 }
 @keyframes cd-item-slide-in {
   100% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     opacity: 1;
   }
   0% {
     -webkit-transform: translateX(80px);
-            transform: translateX(80px);
+    transform: translateX(80px);
     opacity: 0;
   }
 }

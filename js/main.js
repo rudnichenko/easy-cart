@@ -61,6 +61,28 @@ jQuery(document).ready(function($){
 		});
 	}
 
+	$("#send-order-btn").on('click', function(e){
+		e.preventDefault();
+
+		console.log("click")
+		var form = this;
+		var dataForm = $(this).serialize();
+
+		if(this.checkValidity()) {
+			$.ajax({
+				data : dataForm,
+				type: 'POST',
+				url: $(form).attr('action')
+			}).done(function(data) {
+				clearCart(); // clear all items from cart
+				toggleCart(); // close cart
+			});
+		} else {
+			// animate input shake
+			$("#orderForm").find('input[type="tel"]').addClass('shake');
+		}
+	});
+
 	function toggleCart(bool) {
 		var cartIsOpen = ( typeof bool === 'undefined' ) ? cartWrapper.hasClass('cart-open') : bool;
 		
@@ -83,6 +105,11 @@ jQuery(document).ready(function($){
 		}
 	}
 
+	function clearCart() {
+		cartList.children('li').each().addClass('deleted');
+		quickUpdateCart();
+	}
+
 	function addToCart(trigger) {
 		var cartIsEmpty = cartWrapper.hasClass('empty');
 		//update cart product list
@@ -91,12 +118,13 @@ jQuery(document).ready(function($){
 		updateCartCount(cartIsEmpty);
 		//update total price
 		updateCartTotal(trigger.data('price'), true);
+		quickUpdateCart();
 		//show cart
 		cartWrapper.removeClass('empty');
 	}
 
 	function addProduct(trigger) {
-		var productAdded = $('<li class="product"><div class="product-image"><a href="#0"><img src="' + trigger.data('icon') + '" alt="placeholder"></a></div><div class="product-details"><h3><a href="#0">' + trigger.data('name') + '</a></h3><span class="price">' + trigger.data('price') + '</span><div class="actions"><a href="#0" class="delete-item">Удалить</a><div class="quantity"><label for="cd-product-'+ productId +'">К-во:</label><span class="select"><select id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>');
+		var productAdded = $('<li class="product"><div class="product-image"><a href="#0"><img src="' + trigger.data('icon') + '" alt="placeholder"></a></div><div class="product-details"><h3><a href="#0">' + trigger.data('name') + '</a></h3><span class="price">' + trigger.data('price') + '</span><span class="currency"> грн.</span><div class="actions"><a href="#0" class="delete-item">Удалить</a><div class="quantity"><label for="cd-product-'+ productId +'">К-во:</label><span class="select"><select id="cd-product-'+ productId +'" name="quantity"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option></select></span></div></div></div></li>');
 		cartList.prepend(productAdded);
 	}
 
@@ -114,6 +142,7 @@ jQuery(document).ready(function($){
 		updateCartTotal(productTotPrice, false);
 		updateCartCount(true, -productQuantity);
 		undo.addClass('visible');
+		quickUpdateCart();
 
 		//wait 8sec before completely remove the item
 		undoTimeoutId = setTimeout(function(){
@@ -132,7 +161,15 @@ jQuery(document).ready(function($){
 			price = price + singleQuantity*Number($(this).find('.price').text().replace('$', ''));
 		});
 
-		cartTotal.text(price.toFixed(2));
+		// cartTotal.text(price.toFixed(2)); old code
+		// my variation, with 50% discount 3+ products
+		if (quantity < 3) {
+			$('.cd-cart-container').find('.checkout').find('span').text(price.toFixed(2));
+		} else {
+			price = price - price/2;
+			$('.cd-cart-container').find('.checkout').find('span').text(price.toFixed(2));
+		}
+
 		cartCount.find('li').eq(0).text(quantity);
 		cartCount.find('li').eq(1).text(quantity+1);
 	}
@@ -175,10 +212,10 @@ jQuery(document).ready(function($){
 
 	function toggleInput() {
 		if (aCheckoutBtn.find('em')) {
-			aCheckoutBtn.find('em').replaceWith('<form class="animated fadeInDown"><input name="phone" type="tel" placeholder="(095)5465757" required><input type="submit" value="Заказать"></form>');
+			aCheckoutBtn.find('em').replaceWith('<form id="orderForm" class="cart-phone-form animated fadeInDown" action="sendmail.php" method="post"><input name="phone" type="tel" placeholder="0955465757" maxlength="12" minlength="10"  required><input id="hidden-list" type="hidden"><input id="send-order-btn" type="submit" value="Заказать"></form>');
 		} else {
 			aCheckoutBtn.find('form').replaceWith('<em></em>');
 		}
 	}
-	// payCart($(this));
+
 });
